@@ -7,14 +7,24 @@ static bool EstPair(int x)
 }
 
 List<int> nombres = new List<int> { 1, 2, 3, 4, 5, 6, 7 };
+List <int> NombresPairs=nombres.FindAll(EstPair);
+foreach (int nb  in NombresPairs)
+{
+    Console.WriteLine(nb);
+}
 
 // Les types délégués génériques Func et Action : une variable qui va contenir une fonction.
+//Func<int, bool> fctEstPair = EstPair;
+//Action<string> afficher =Console.WriteLine;
+//afficher("Salut!,je suis l'action qui prend le role");
 
 // Lambda 
-
+Func<int,bool> fctEstPair =( x) =>   x % 2 == 0; ;
 // Expression lambda en Callback (retour à FindAll)
-
-// LINQ et expressions lambda
+nombres.FindAll(x => x%2==0);
+foreach (int x in NombresPairs) {
+    Console.WriteLine(x);
+}// LINQ et expressions lambda
 
 
 // Exercice
@@ -32,3 +42,14 @@ List<Client> clients = new()
 };
 
 // q1
+List<Client> clientsGatineau =clients.Where(c => c.Ville == "Gatineau").ToList();
+
+//q2
+List<string> PrenomClients = clients.Select(c=> c.Prenom).ToList();
+//q3
+
+//q4
+int NombreClient = clients.Count(c => c.Ville == "Montréal");
+
+//q5
+
